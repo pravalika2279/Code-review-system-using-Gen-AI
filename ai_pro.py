@@ -3,13 +3,15 @@ from typing import Dict, TypedDict, Optional
 from langgraph.graph import StateGraph, END
 import google.generativeai as genai
 from langchain_google_genai import ChatGoogleGenerativeAI
-import creds
+import os
+from dotenv import load_dotenv
 # Configure API Key
-
-genai.configure(api_key=creds.GOOGLE_API_KEY)
+load_dotenv()
+GOOGLE_API_KEY= os.getenv("GOOGLE_API_KEY")
+genai.configure(api_key=GOOGLE_API_KEY)
 
 # Initialize AI Model
-ai_model = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=creds.GOOGLE_API_KEY)
+ai_model = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=GOOGLE_API_KEY)
 
 def generate_response(prompt):
     return ai_model.invoke(prompt).content
