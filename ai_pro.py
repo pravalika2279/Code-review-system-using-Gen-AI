@@ -3,11 +3,8 @@ from typing import Dict, TypedDict, Optional
 from langgraph.graph import StateGraph, END
 import google.generativeai as genai
 from langchain_google_genai import ChatGoogleGenerativeAI
-import os
-from dotenv import load_dotenv
 # Configure API Key
-load_dotenv()
-GOOGLE_API_KEY= os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY= 'AIzaSyAvWFWZHCj7iR7CHiU_gEnkP9BsEEDhQSw'
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Initialize AI Model
