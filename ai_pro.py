@@ -1,11 +1,18 @@
+import os
+from dotenv import load_dotenv
 import streamlit as st
 from typing import Dict, TypedDict, Optional
 from langgraph.graph import StateGraph, END
 import google.generativeai as genai
 from langchain_google_genai import ChatGoogleGenerativeAI
 # Configure API Key
-GOOGLE_API_KEY= 'AIzaSyAvWFWZHCj7iR7CHiU_gEnkP9BsEEDhQSw'
+load_dotenv()
+GOOGLE_API_KEY= os.getenv("GOOGLE_API_KEY")
+if not GOOGLE_API_KEY:
+    raise ValueError("API key not found. Make sure it's set in the .env file.")
+
 genai.configure(api_key=GOOGLE_API_KEY)
+
 
 # Initialize AI Model
 ai_model = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=GOOGLE_API_KEY)
