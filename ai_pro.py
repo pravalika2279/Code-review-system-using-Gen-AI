@@ -4,11 +4,11 @@ from langgraph.graph import StateGraph, END
 import google.generativeai as genai
 from langchain_google_genai import ChatGoogleGenerativeAI
 # Configure API Key
-GOOGLE_API_KEY= "AIzaSyBatkmR41rvYQYVR3SVL9LUadW7PfjHhHU"
+GOOGLE_API_KEY= "AIzaSyBYbmm6XrMgnS3Y3L_Ts1M4HNwHl0wGzpA"
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Initialize AI Model
-ai_model = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=GOOGLE_API_KEY)
+ai_model = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=GOOGLE_API_KEY)
 
 def generate_response(prompt):
     return ai_model.invoke(prompt).content
