@@ -4,7 +4,7 @@ from langgraph.graph import StateGraph, END
 import google.generativeai as genai
 from langchain_google_genai import ChatGoogleGenerativeAI
 # Configure API Key
-GOOGLE_API_KEY= "AIzaSyBYbmm6XrMgnS3Y3L_Ts1M4HNwHl0wGzpA"
+GOOGLE_API_KEY= ""
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Initialize AI Model
